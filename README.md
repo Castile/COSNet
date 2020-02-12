@@ -11,10 +11,21 @@ Co-Attention Siamese Networks](http://openaccess.thecvf.com/content_CVPR_2019/pa
 ![](../master/framework.png)
 
 - - -
+# 说明
 
-###The pre-trained model and testing code:
+经过修改得以运行在自己的机器上。很感谢原作者的工作！
+
+源仓库： https://github.com/carrierlxk/COSNet 
+
+:new:
+
+Our group co-attention achieves a further performance gain (81.1 mean J on DAVIS-16 dataset).
+
+The pre-trained model, testing and training code:
 
 ### Quick Start
+
+#### Testing
 
 1. Install pytorch (version:1.0.1).
 
@@ -28,7 +39,15 @@ The pretrained weight can be download from [GoogleDrive](https://drive.google.co
 
 The segmentation results on DAVIS, FBMS and Youtube-objects can be download from [GoogleDrive](https://drive.google.com/open?id=1JRPc2kZmzx0b7WLjxTPD-kdgFdXh5gBq) or [BaiduPan](https://pan.baidu.com/s/11n7zAt3Lo2P3-42M2lsw6Q), pass code: q37f.
 
-We will release the training codes soon.
+#### Training
+
+1. Download all the training datasets, including MARA10K and DUT saliency datasets. Create a folder called images and put these two datasets into the folder. 
+
+2. Download the deeplabv3 model from [GoogleDrive](https://drive.google.com/open?id=1hy0-BAEestT9H4a3Sv78xrHrzmZga9mj). Put it into the folder pretrained/deep_labv3.
+
+3. Change the video path, image path and deeplabv3 path in train_iteration_conf.py.  Create two txt files which store the saliency dataset name and DAVIS16 training sequences name. Change the txt path in PairwiseImg_video.py.
+
+4. Run command: python train_iteration_conf.py --dataset davis --gpus 0,1
 
 ### Citation
 If you find the code and dataset useful in your research, please consider citing:
